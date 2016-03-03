@@ -1,15 +1,22 @@
 package com.undermidnight.babysitter;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import junit.framework.TestCase;
 
 public class TestBabySitter extends TestCase {
+	
+	BabySitter babySitter;
+	int bedTime = 9;
+	
+	@Before
+	public void setUp() throws Exception {
+		babySitter = new BabySitter();
+	}
+	
 	@Test
 	public void testOneHourWithinStartTimeToBedTime() throws Exception {
-		int bedTime = 9;
-		BabySitter babySitter = new BabySitter();
-		
 		// Test One hour... 
 		int pay = babySitter.calculatePay(5,6, bedTime);
 		assertEquals(12, pay);

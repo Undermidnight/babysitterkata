@@ -12,11 +12,15 @@ public class BabySitter {
 		
 		for (int hourWorked = startTime; hourWorked < endTime; hourWorked++) {
 			// Check before bed pay
-			if( hourWorked < bedTime && hourWorked >= EARLIEST_START_TIME) {
+			if( isBeforeBedPay(bedTime, hourWorked)) {
 				pay = START_TIME_TO_BEDTIME_RATE;
 			}
 			totalPay+=pay;
 		}
 		return totalPay;
+	}
+
+	private boolean isBeforeBedPay(int bedTime, int hourWorked) {
+		return hourWorked < bedTime && hourWorked >= EARLIEST_START_TIME;
 	}
 }
