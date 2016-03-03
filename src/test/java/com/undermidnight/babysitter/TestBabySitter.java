@@ -7,9 +7,9 @@ import junit.framework.TestCase;
 public class TestBabySitter extends TestCase {
 	@Test
 	public void testOneHourWithinStartTimeToBedTime() throws Exception {
-		int bedTime = 21;
+		int bedTime = 9;
 		BabySitter babySitter = new BabySitter();
-		int pay = babySitter.calculatePay(17,18, bedTime);
+		int pay = babySitter.calculatePay(5,6, bedTime);
 		assertEquals(12, pay);
 	}
 	
