@@ -8,9 +8,15 @@ public class BabySitter {
 	
 	public int calculatePay(int startTime, int endTime, int bedTime) {
 		int pay = 0;
-		if(startTime >= EARLIEST_START_TIME && endTime <= bedTime) {
-			pay = (endTime - startTime) * START_TIME_TO_BEDTIME_RATE;
+		int totalPay = 0;
+		
+		for (int hourWorked = startTime; hourWorked < endTime; hourWorked++) {
+			// Check before bed pay
+			if( hourWorked < bedTime && hourWorked >= EARLIEST_START_TIME) {
+				pay = START_TIME_TO_BEDTIME_RATE;
+			}
+			totalPay+=pay;
 		}
-		return pay;
+		return totalPay;
 	}
 }
